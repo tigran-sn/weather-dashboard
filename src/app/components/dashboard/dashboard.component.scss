@@ -1,0 +1,27 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+
+.weather-card {
+  width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.weather-card img {
+  border-radius: 50%;
+}
+
+.weather-card .weather-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+}
+
+.weather-card .weather-details p {
+  margin: 0;
+}

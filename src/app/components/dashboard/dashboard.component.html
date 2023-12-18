@@ -1,0 +1,52 @@
+<div class="card-container">
+  <mat-card *ngIf="weatherData; else noData" class="weather-card">
+    <mat-card-header>
+      <mat-card-title>Weather in {{ weatherData.name }}</mat-card-title>
+      <mat-card-subtitle
+        >Coordinates: {{ weatherData.coord.lon }},
+        {{ weatherData.coord.lat }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="
+        'http://openweathermap.org/img/w/' +
+        weatherData.weather[0].icon +
+        '.png'
+      "
+      width="50px"
+      height="50px"
+      alt="Weather icon"
+    />
+    <mat-card-content>
+      <div class="weather-details">
+        <p>
+          <strong>Weather:</strong> {{ weatherData.weather[0].main }} -
+          {{ weatherData.weather[0].description }}
+        </p>
+        <p><strong>Temperature:</strong> {{ weatherData.main.temp }}°C</p>
+        <p><strong>Feels like:</strong> {{ weatherData.main.feels_like }}°C</p>
+        <p>
+          <strong>Min temperature:</strong> {{ weatherData.main.temp_min }}°C
+        </p>
+        <p>
+          <strong>Max temperature:</strong> {{ weatherData.main.temp_max }}°C
+        </p>
+        <p><strong>Pressure:</strong> {{ weatherData.main.pressure }} hPa</p>
+        <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}%</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #noData>
+  <mat-card class="weather-card">
+    <mat-card-content>
+      <p>No weather data available.</p>
+      <p>Enter a city and select a unit in Home page to get started.</p>
+      <button mat-raised-button color="primary" (click)="navigateToHome()">
+        Go to Home page
+      </button>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

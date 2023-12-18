@@ -1,0 +1,33 @@
+<div class="form-container">
+  <form [formGroup]="form" class="weather-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the city</mat-label>
+      <input matInput #input formControlName="city" placeholder="Ex. London" />
+      <mat-error *ngIf="controls.city.invalid && controls.city.touched">{{
+        controls.city.errors | getFirstError : "city" : validationMessages
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select unit</mat-label>
+      <mat-select formControlName="units">
+        <mat-option *ngFor="let unit of unitsList" value="{{ unit.value }}">{{
+          unit.viewValue
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="controls.units.invalid && controls.units.touched">{{
+        controls.units.errors | getFirstError : "units" : validationMessages
+      }}</mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="getWeather()"
+      [disabled]="!form.valid"
+      class="submit-button"
+    >
+      Get Weather
+    </button>
+  </form>
+</div>
