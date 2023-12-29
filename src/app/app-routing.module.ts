@@ -1,28 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    title: 'Home',
-  },
-  {
-    path: 'dashboard',
     loadChildren: () =>
-      import('./components/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule
-      ),
+      import('./public/public.module').then((m) => m.PublicModule),
   },
   {
-    path: '**',
-    redirectTo: 'home',
+    path: '',
+    loadChildren: () =>
+      import('./private/private.module').then((m) => m.PrivateModule),
   },
 ];
 
