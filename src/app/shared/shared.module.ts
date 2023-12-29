@@ -4,9 +4,10 @@ import { MaterialModule } from '../material.module';
 import { GetFirstErrorPipe } from './pipes';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [GetFirstErrorPipe],
+  declarations: [GetFirstErrorPipe, NotFoundComponent],
   imports: [
     CommonModule,
     RouterModule,
