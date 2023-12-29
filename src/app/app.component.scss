@@ -9,3 +9,11 @@ mat-sidenav {
 .active {
   background-color: #e0e0e0;
 }
+mat-toolbar-row a {
+  color: white;
+  text-decoration: none;
+}
+
+mat-toolbar-row a:hover {
+  color: lightgray;
+}
