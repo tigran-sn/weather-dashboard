@@ -14,8 +14,12 @@ const routes: Routes = [
       import('./private/private.module').then((m) => m.PrivateModule),
   },
   {
-    path: '**',
+    path: 'not-found',
     component: NotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
   },
 ];
 
